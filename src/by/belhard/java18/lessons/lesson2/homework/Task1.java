@@ -19,7 +19,7 @@ public class Task1 {
         System.out.println(s-i);
         System.out.println(i/l);
         System.out.println(l%f);
-        System.out.println(d++ + ++d); // 6.6 + 7.6 = 14.2 Почему ответ 15.2 ?
+        System.out.println(d++ + ++d);
         System.out.println(d++);
         System.out.println(++d);
         System.out.println(c/c);
