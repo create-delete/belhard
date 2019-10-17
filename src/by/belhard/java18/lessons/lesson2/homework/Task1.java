@@ -24,5 +24,10 @@ public class Task1 {
         System.out.println(++d);
         System.out.println(c/c);
         System.out.println(isBool && b+s==i);
+        String s1 = ".", s2 = ".";
+        System.out.println(s1.equals(s2));
+        System.out.println(s1.equals("."));
+        System.out.println(s1 == ".");git
+        System.out.println(s1 == s2);
     }
 }
