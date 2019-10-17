@@ -27,7 +27,7 @@ public class Task1 {
         String s1 = ".", s2 = ".";
         System.out.println(s1.equals(s2));
         System.out.println(s1.equals("."));
-        System.out.println(s1 == ".");git
+        System.out.println(s1 == ".");
         System.out.println(s1 == s2);
     }
 }
