@@ -1,4 +1,4 @@
-package by.belhard.java18.lessons.lesson2.homework;
+package by.belhard.java18.homeworks.homework2;
 
 /*Есть вещественные(дробные) переменные rad, rX и rY.
 Они хранят радиус и координаты центра окружности.
@@ -9,13 +9,17 @@ package by.belhard.java18.lessons.lesson2.homework;
 
 public class Task3 {
     public static void main(String[] args) {
-        double rad = 3, rX = 2, rY = 1;
+        double rad = 1.4, rX = 2, rY = 1;
         double dX = 1, dY = 2;
 
-        double distanceX = rX - dX, distanceY = rY - dY;
+        double distanceX = dX - rX, distanceY = dY - rY;
         if(distanceX < 0) distanceX = -distanceX;
         if(distanceY < 0) distanceY = -distanceY;
 
         double distance = Math.sqrt(distanceX*distanceX + distanceY*distanceY);
+
+        if(distance>rad) System.out.println("За пределами");
+        else if(distance == rad) System.out.println("На окружности");
+        else System.out.println("Внутри");
     }
 }
