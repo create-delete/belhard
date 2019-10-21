@@ -11,14 +11,14 @@ package by.belhard.java18.homeworks.homework3;
 public class Task8 {
     public static void main(String[] args) {
         int[][] array = new int[4][];
-        int number = 1;
+        int startInt  = 1;
         for (int i = 0; i < array.length; i++) {
             array[i] = new int[(i + 1)];
         }
         for (int i = 0; i < array.length; i++) {
             for (int q = 0; q < array[i].length; q++) {
-                array[i][q] = number;
-                number *= 2;
+                array[i][q] = startInt ;
+                startInt  *= 2;
             }
         }
         for (int i = 0; i < array.length; i++) {
