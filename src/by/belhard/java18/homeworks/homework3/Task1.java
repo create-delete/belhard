@@ -11,7 +11,7 @@ public class Task1 {
 
         double temperatureС = 15.3;
 
-        if (temperatureС < 10) System.out.println("Куртка");
+        if      (temperatureС < 10)                       System.out.println("Куртка");
         else if (temperatureС >= 10 && temperatureС < 15) System.out.println("Ветровка");
         else if (temperatureС >= 15 && temperatureС < 20) System.out.println("Свитер");
         else if (temperatureС >= 20 && temperatureС < 30) System.out.println("Майка");

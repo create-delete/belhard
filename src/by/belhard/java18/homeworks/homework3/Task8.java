@@ -10,6 +10,7 @@ package by.belhard.java18.homeworks.homework3;
  */
 public class Task8 {
     public static void main(String[] args) {
+
         int[][] array = new int[4][];
         int startInt  = 1;
         for (int i = 0; i < array.length; i++) {
@@ -31,8 +32,8 @@ public class Task8 {
         ///////*****************************************************
 
         for (int i = 0; i < array.length; i++) {
-            for (int q = array[i].length; q > 0; q--) {
-                System.out.print(array[i][q-1] + "\t");
+            for (int q = array[i].length-1; q >= 0; q--) {
+                System.out.print(array[i][q] + "\t");
             }
             System.out.println();
         }

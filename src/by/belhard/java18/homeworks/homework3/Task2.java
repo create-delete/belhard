@@ -1,10 +1,8 @@
 package by.belhard.java18.homeworks.homework3;
-
 /*
 Даны зарплаты трех людей. Найти разницу между максимальной и минимальной зарплатой.
 Попробуйте решить без использования класса Math.
  */
-
 public class Task2 {
     public static void main(String[] args) {
         int[] salary = {10, 20, 30};

@@ -5,13 +5,14 @@ package by.belhard.java18.homeworks.homework3;
  */
 public class Task3 {
     public static void main(String[] args) {
-        int a = 2, n = 13, result;
+        int a = 2, n = 2, result;
         if (n >= 2) {
             result = a * a;
             for (int i = 0; i < n - 2; i++) result *= a;
         } else if (n == 1) {
             result = a;
         } else result = 1;
+
         ////////////////////////////////////////////////////////////////////////////////////////////
         int a1 = 2, n1 = 4, result1 = 0;
         switch (n1) {

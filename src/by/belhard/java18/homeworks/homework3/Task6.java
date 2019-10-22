@@ -1,5 +1,7 @@
 package by.belhard.java18.homeworks.homework3;
 
+import java.util.Arrays;
+
 /*
 Создать массив целых чисел, записать в него 10 значений. Посчитать и вывести сумму всех значений и среднее значение.
 *доп. Посчитать и вывести медиану.
@@ -11,7 +13,7 @@ public class Task6 {
         for (int i : array) {
             sum += i;
         }
-        System.out.println("Сумма: " + sum + ". Среднее значение: " + (double) sum / 10);
+        System.out.println("Сумма: " + sum + ". Среднее значение: " + (double) sum / array.length);
 
         //********median
 
@@ -25,7 +27,7 @@ public class Task6 {
             }
         }
         if (array.length % 2 == 0) {
-            System.out.println("median: " + (array[array.length / 2] + array[array.length / 2 + 1]));
+            System.out.println("median: " + (double)(array[array.length / 2] + array[array.length / 2 + 1])/2);
         } else System.out.println("median: " + array[array.length / 2]);
     }
 }

@@ -26,7 +26,7 @@ public class Task5 {
 
         int iForSwitch = 0;
         for (int i = 0; i < 5; i++) {
-            switch (i) {
+            switch (i) {  // Весь SWITCH меняется на проверку в for - if(i/10%2==1)
                 case 0:
                     iForSwitch = 1;
                     break;
