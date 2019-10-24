@@ -41,6 +41,7 @@ public class CTO {
         if(paunchSize >= 100) dzen = true;
     }
      public void drinkBear(){
+        quality++;
         if(paunch) {
             paunchSize ++;
             if(paunchSize >= 100) dzen = true;
@@ -56,7 +57,7 @@ public class CTO {
      public void scheduledTask(SystemAdmin slave){
         Task.GetTask(slave);
      }
-      public void isDzen (){
+     public void isDzen (){
         if(dzen) System.out.println("Пошли все в задницу, ничего не буду делать");
         else System.out.println("Я еще ничего не понимаю, ничего не буду делать");
       }
