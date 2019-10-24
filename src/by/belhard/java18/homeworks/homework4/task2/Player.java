@@ -5,11 +5,11 @@ package by.belhard.java18.homeworks.homework4.task2;
 б) вывести на консоль значение текущего положения,
 доп1 в*) игрок должен хранить значение пройденного расстояния и уметь вводить на консоль это значение.
  */
-public class Gamer {
+public class Player {
     int sourseX, sourceY;
     double distance = 0;
 
-    public Gamer(){
+    public Player(){
         sourseX = 0;
         sourceY = 0;
     }
