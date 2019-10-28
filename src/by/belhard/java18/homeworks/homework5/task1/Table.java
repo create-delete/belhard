@@ -5,10 +5,10 @@ package by.belhard.java18.homeworks.homework5.task1;
 В другом классе создать несколько экземпляров класса Table, записать их в массив, вывести на консоль все элементы массива.
  */
 public class Table {
-    int legs, price;
-    double height;
-    Material material;
-    Type type;
+    private int legs, price;
+    private double height;
+    private Material material;
+    private Type type;
 
     public Table(int legs, int price, double height, Material material, Type type) {
         this.legs = legs;
@@ -17,11 +17,17 @@ public class Table {
         this.material = material;
         this.type = type;
     }
-
     public Table() {
+        type = Type.JUST_TABLE;
+        material = Material.NOT_DEFINED;
     }
+
+
     public String toString () {
-        String result = "Table made of " + material.name().toLowerCase() + " material " + type.name().toLowerCase() + " share. Height: " + height + ". Legs count: " + legs + ". It cost " + price + " dollars";
+        String result = "Table made of " + material.name().toLowerCase() + " type: " + type.name().toLowerCase() +
+                " share. Height: " + height + ". Legs count: " + legs;
+        if(price <= 0) result += ". Not for sale";
+        else result += ". It cost " + price + " dollars";
         return result;
     }
 }
