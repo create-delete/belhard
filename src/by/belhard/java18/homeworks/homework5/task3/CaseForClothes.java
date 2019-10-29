@@ -25,49 +25,53 @@ public class CaseForClothes {
             Clothes[] caseClothes = new Clothes[countShelf];
             if (caseClothes.length >= shelf.length) caseClothes = shelf;
             else {
-                for(int i = 0; i < caseClothes.length; i++) {
+                for (int i = 0; i < caseClothes.length; i++) {
                     caseClothes[i] = shelf[i];
                 }
             }
         }
     }
+
     //а) положить вещь на конкретную полку. Если полка занята – сообщение.
-    public void pushClothesOnTheShelf(Clothes clothes, int shelf) {
+    public void putClothesOnTheShelf(Clothes clothes, int shelf) {
         if (this.shelf.length - 1 > shelf) System.out.println("The shelf you need doesn't exist.");
         else if (this.shelf[shelf] != null) System.out.println("The shelf is not empty.");
         else {
             this.shelf[shelf] = clothes;
         }
     }
+
     //б) «закинуть» вещь в шкаф, она должна попадать на любую свободную полку, если таковая имеется. Если свободных полок нет – сообщение.
-    public void pushClothesOnTheRandomShelf (Clothes clothes) {
+    public void putClothesOnTheRandomShelf(Clothes clothes) {
         Random random = new Random();
         boolean isTrue = false;
-        for(int i = 0; i< shelf.length; i++) {
+        for (int i = 0; i < shelf.length; i++) {
             if (shelf[i] == null) {
                 isTrue = true;
                 break;
             }
         }
-        if(!isTrue) System.out.println("There are no free shelves.");
+        if (!isTrue) System.out.println("There are no free shelves.");
         while (isTrue) {
             int shelf = random.nextInt(this.shelf.length);
-            if(this.shelf[shelf] != null) continue;
+            if (this.shelf[shelf] != null) continue;
             else {
                 this.shelf[shelf] = clothes;
                 break;
             }
         }
- //
     }
 
     //в) взять вещь с конкретной полки. Если полка пустая – сообщение об этом.
-    public Clothes putClothesOnShalf (int shelf) {
-        if(this.shelf[shelf] == null || shelf < 0) {
+    public Clothes takeClothesOnShalf(int shelf) {
+        Clothes result = null;
+        if (this.shelf[shelf] == null || shelf < 0) {
             System.out.println("Error. Shelf is empty.");
-            return null;
+        } else {
+            result = this.shelf[shelf];
+            this.shelf[shelf] = null;
         }
-        else return this.shelf[shelf];
+        return result;
     }
 
     //г) провести ревизию того, что есть в шкафу, то есть просто вывести на консоль содержимое всех полок.
