@@ -28,6 +28,7 @@ public class Table {
                 " share. Height: " + height + ". Legs count: " + legs;
         if(price <= 0) result += ". Not for sale";
         else result += ". It cost " + price + " dollars";
+
         return result;
     }
 }
