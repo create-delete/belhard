@@ -8,7 +8,7 @@ public class ClazzExample {
 
         System.out.println(clazz.isPrimitive());
         System.out.println(clazz);
-
+String s;
 
     }
 }
