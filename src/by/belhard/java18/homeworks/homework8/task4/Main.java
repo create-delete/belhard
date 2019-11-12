@@ -17,9 +17,7 @@ public class Main {
     public static void main(String[] args) {
 
         ShoppingList list = new ShoppingList();
-
         Map<String, Integer> shopList = new HashMap<>();
-
 
         shopList.put("Kolbaska", 1);
         shopList.put("Ogurchiki", 2);
@@ -28,10 +26,14 @@ public class Main {
 
         list.addBuyer(new Buyer("Роман"), shopList);
 
-        System.out.println(list.getShoppingList());
+        list.printShoppingList();
 
         list.switchPurchaseByPerson("Роман", "Ogurchiki", 1);
 
-        System.out.println(list.getShoppingList());
+        System.out.println("----------------------------------");
+
+        list.switchPurchaseByPerson("Максим", "Ogurchiki", 1);
+
+        list.printShoppingList();
     }
 }
