@@ -1,50 +1,86 @@
 package by.belhard.java18.homeworks.homework8.task4;
 
-import by.belhard.java18.homeworks.homework8.task2.Person;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ShoppingList {
 
-    private Map<Person, Map<String, Integer>> shoppingList;
+    private Map<Buyer, Map<String, Integer>> shoppingList;
 
-    public ShoppingList(){
+    public ShoppingList() {
         shoppingList = new HashMap<>();
     }
 
-    public Map<Person, Map<String, Integer>> getShoppingList() {
+    public Map<Buyer, Map<String, Integer>> getShoppingList() {
         return shoppingList;
     }
 
-    public void addBuyer (Person person, Map<String, Integer> shopList) {
+    public void addBuyer(Buyer buyer, Map<String, Integer> shopList) {
 
-        shoppingList.put(person, shopList);
+        shoppingList.put(buyer, shopList);
     }
 
-    public void switchPurchaseByPerson (String name, Map<String, Integer> shopList){
+    public void switchPurchaseByPerson(String name, String purchase, Integer qty) {
         boolean flaq = false;
 
-        //Проверяю есть ли такой человек в списке
-        for(Map.Entry<Person, Map<String, Integer>> pair : shoppingList.entrySet()){
+        // Проверяю есть ли человек с таким именем в списке
+        // Подразумевается, что у всех уникальное имя
+        for (Map.Entry<Buyer, Map<String, Integer>> pair : shoppingList.entrySet()) {
 
-            if(pair.getKey().getName().equals(name)){
+            if (pair.getKey().getName().equals(name)) {
                 flaq = true;
             }
         }
 
-        //Если есть - обновляю его список покупок
-        if(flaq) {
-            for (Map.Entry<Person, Map<String, Integer>> pair : shoppingList.entrySet()) {
+        //  ??????????????????????????????????????????????????
+        // pair.setValue(shopList); - работает с переменной на прямую или с ее копией?
+        // то есть вопрос в том, поменяется ли значение в списке или
+        // надо использовать конструкцию типо shopingList = что то;
+        // ???????????????????????????????????????????????????????
+
+
+        // Если есть - обновляю его список покупок
+        if (flaq) {
+            for (Map.Entry<Buyer, Map<String, Integer>> pair : shoppingList.entrySet()) {
 
                 if (pair.getKey().getName().equals(name)) {
-                    pair.setValue(shopList);
+                    Map<String, Integer> tempMap = pair.getValue();
+
+                    //Ищем есть ли такой товар в списке. Если есть - надо изменить его кол-во
+
+                    tempMap = switchQty(tempMap, purchase, qty);
+
+                    //если нет - просто добавляю в список товар
+                    if(!tempMap.containsKey(purchase)){
+
+                        tempMap.put(purchase, qty);
+                        shoppingList.put(pair.getKey(), tempMap);
+                    }
+
+                    //если нет - просто добавляю в список товар
                 }
             }
         }
-        //Если нет - добавляю его в список покупок
+        //Если нет покупателя - добавляю его в список покупок
         else {
-            shoppingList.put(new Person(name), shopList);
+
+            shoppingList.put(new Buyer(name), new HashMap<>(Map.of(purchase, qty)));
         }
+    }
+
+    private static Map<String, Integer> switchQty(Map<String, Integer> map, String key, int newQty) {
+
+        Map<String, Integer> result = new HashMap<>();
+
+        for (Map.Entry<String, Integer> m : map.entrySet()) {
+            if (m.getKey().equals(key)) {
+                result.put(key, (m.getValue() + newQty));
+            } else {
+                result.put(m.getKey(), m.getValue());
+            }
+        }
+
+        return result;
     }
 }

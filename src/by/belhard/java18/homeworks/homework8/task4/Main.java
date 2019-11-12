@@ -1,4 +1,8 @@
 package by.belhard.java18.homeworks.homework8.task4;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /*
 4) Добрый парень Василий живет в общаге и решил сходить в магазин. Он собирает у желающих список продуктов, которые им нужны, чтобы купить все разом.
 Задание: Реализовать класс СписокПокупок, в котором должны содержаться данные о том, кто и какие продукты заказал у Василия.
@@ -12,5 +16,22 @@ beer: 25
 public class Main {
     public static void main(String[] args) {
 
+        ShoppingList list = new ShoppingList();
+
+        Map<String, Integer> shopList = new HashMap<>();
+
+
+        shopList.put("Kolbaska", 1);
+        shopList.put("Ogurchiki", 2);
+        shopList.put("Maionez", 1);
+
+
+        list.addBuyer(new Buyer("Роман"), shopList);
+
+        System.out.println(list.getShoppingList());
+
+        list.switchPurchaseByPerson("Роман", "Ogurchiki", 1);
+
+        System.out.println(list.getShoppingList());
     }
 }
