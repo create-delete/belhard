@@ -18,12 +18,13 @@ public class Main {
 
     public static String getShorterThenFive(ArrayList<String> list) {
 
+        StringBuilder sb;
         String result = "";
 
         for(String s : list ) {
             if(s.length() < 5) result += (s + " ");
         }
 
-        return result;
+        return result.trim();
     }
 }
