@@ -4,6 +4,15 @@ package by.belhard.java18.homeworks.homework9.task1;
 
 import java.io.*;
 
+
+/**
+ *
+ * Вопрос:
+ * Надо делать два отдельных try {} catch  ? или у меня норм решение?
+ * Т.е. может нет смысла держать открытый writer пока работает reader и наоборот?
+ *
+ */
+
 public class Main {
     public static void main(String[] args) {
         File file = new File("input.ti");
