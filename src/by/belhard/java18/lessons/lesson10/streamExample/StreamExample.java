@@ -19,11 +19,11 @@ public class StreamExample {
                 new Person("person10", 14)
         );
 
-        List<Person> collct = people.stream()
+        List<Person> collect = people.stream()
                 .filter(p -> p.getAge()>25)
                 .sorted((p1, p2) -> p2.getAge()-p1.getAge())
                 .collect(Collectors.toList());
 
-        System.out.println(collct);
+        System.out.println(collect);
     }
 }
