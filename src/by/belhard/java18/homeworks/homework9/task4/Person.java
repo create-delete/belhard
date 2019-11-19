@@ -4,16 +4,16 @@ public class Person {
     private BankAccount bankAccount;
     private String name;
 
-    public Person (String name, double balance){
+    public Person(String name, BankAccount bankAccount) {
         this.name = name;
-        bankAccount = new BankAccount(balance);
+        this.bankAccount = bankAccount;
     }
 
-    public double getBalance() {
+    public int getBalance() {
         return bankAccount.getBalance();
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(int balance) {
         bankAccount.setBalance(balance);
     }
 
