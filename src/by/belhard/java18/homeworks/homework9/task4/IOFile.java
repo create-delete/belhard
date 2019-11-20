@@ -67,7 +67,7 @@ public class IOFile {
 
         if (accounts.stream().anyMatch(a -> transaction.getSender().equals(a.getName()))
                 && accounts.stream().anyMatch(a -> transaction.getReceiver().equals(a.getName()))
-                && transaction.getAmount() > 0
+                && transaction.getAmount() >= 0
         ) {
             return true;
         } else return false;
