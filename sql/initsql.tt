@@ -1,0 +1,87 @@
+create database bh18db;
+use bh18db;
+-- comment
+create table employees(
+	id int auto_increment primary key,
+    name varchar(50) unique not null,
+    age int default 20 check(age > 0),
+    sex boolean,
+    birthday date default '2019-02-15',
+    speciality varchar(56)
+    
+);
+
+-- drop table employees;
+-- truncate table employees;
+-- delete from employees;
+
+insert into employees (id, name, age, sex, birthday, speciality)
+	value (5, 'Vasily', 19, true, '2000-01-11', 'Stolyar');
+insert into employees (id, name, age, sex, birthday, speciality)
+	values (4, 'Mihail', 29, true, '1990-11-05', 'Stolyar')
+		,(null, 'Olga', 49, false, '1970-06-25', 'Buhgalter');
+insert into employees value(null, 'Igor', 5, true, null, null);
+insert into employees (name,age,sex)value('Ivan',24,'1');
+
+select * from employees;
+
+select id, name, speciality from employees;
+select id as 'nomer', name as 'imya', speciality from employees;
+select * from employees where id > 7;
+select * from employees where birthday > '2000-01-01' && speciality = 'Stolyar';
+
+select id, name, bithday from employees e;
+
+update employees set sex=false where name='Vasily';
+
+delete from employees where age <= 20;
+--  СЛЕДУЮЩИЙ УРОК НАЧАЛСЯ
+drop table employees;
+
+create table employees (
+	id int auto_increment primary key,
+	name varchar(56) not null unique,
+    date_of_employment datetime default now(),
+    speciality_id int not null,
+    salary int check(salary >= 0)
+);
+
+create table specialties (
+	id int auto_increment primary key,
+	speciality varchar(56) not null unique
+);
+
+insert into specialties values
+(null, 'Developer'),
+(null, 'QA'),
+(null, 'PM'),
+(null, 'HR');
+
+insert into employees values
+(null, 'Vasily', '2019-05-11', 1, 1500),
+(null, 'Ivan', '2018-01-13', 2, 1300),
+(null, 'Anton', '2017-06-19', 2, 2000),
+(null, 'Grigory', '2012-02-11', 3, 1000),
+(null, 'Timofey', '2018-01-13', 2, 1500),
+(null, 'Ropman', '2016-09-20', 4, 1700),
+(null, 'Roman', '2016-09-20', 79, 1700),
+(null, 'Mariya', '2012-02-01', 4, 1300);
+
+select name, date_of_employment, salary, speciality
+from employees e
+join specialties s
+on (e.speciality_id = s.id)
+order by s.id desc, salary desc
+limit 2,3;
+
+select sum(salary) from employees;
+
+select speciality, avg(salary) from specialties s join employees e on (e.speciality_id = s.id) group by speciality;
+
+select * from employees join specialties;
+
+select * from employees;
+
+alter table employees add foreign key (speciality_id) references specialties (id);
+
+
