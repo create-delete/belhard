@@ -1,7 +1,6 @@
 package by.belhard.java18.homeworks.homework9.task4;
 
-import java.io.File;
-import java.util.Map;
+import java.util.List;
 
 /*
 В файле balance.dt хранятся данные о балансе счетов людей. ++ Считал
@@ -16,14 +15,15 @@ import java.util.Map;
  */
 public class Main {
     public static void main(String[] args) {
-        Operations operations = new Operations();
-        Map<Person, BankAccount> persons;
+        IOFile ioFile = new IOFile();
 
-        persons = operations.readPersons(new File("balance.dt"));
+        List<Account> listAccount = ioFile.readAccounts("balance.dt");
 
+        List<Transaction> transactions = ioFile.readTransactions("transactions.dt");
 
-        persons = operations.doTransaction(persons, new File("transactions.dt"));
+        ioFile.doTransaction(listAccount, transactions);
 
-        operations.writeAccounts(persons);
+        ioFile.writeAccounts(listAccount, "outputTransactions.o");
+
     }
 }
